@@ -1,5 +1,168 @@
-$bg:#efefef;
+@import "mixins";
+@import 'variables';
 
-body {
-    background: $bg;
+
+*{font-family: $roboto}
+h1,h2,h3,p{color: $textGray; margin: 0; font-weight: normal}
+
+#app{
+    min-height: 90vh;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+   section{
+      padding: 15px; 
+      
+      p{
+        font-size: 13px;
+        }
+   }
+
+
+.score-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 17px;
+
+    .score-position{
+        font-size: 30px;
+        color: $green;
+        font-weight: 700;
+        border: 2px solid $green;
+        border-radius: 13px;
+        padding: 5px;
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        margin-right: 15px;
+    }
+
+    p{
+        font-weight: 100;
+        margin: 7px 0 3px;
+        
+    }
+    h2{
+        font-weight: bold;
+    }
+
+}
+
+#image-wrapper{
+    figure{
+        margin: 15px 0;
+
+        img{
+            width: 100%;
+            height: 200px;
+        }
+    }
+}
+
+.answer-wrapper{
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    .answer{
+        @include buttonStyle;
+        border-color: $orange;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 10px;
+        color:$orange;
+        transition: 1s ease;
+        position: relative;
+        p{
+            color:$black;
+            font-weight: bold;
+            font-size: 23px;
+        }
+        i{
+            padding-right: 7px;
+        }
+    }
+    .answer.selected{
+        cursor: pointer;
+        background: $orange;
+        color: $white;
+    }
+     .answer.selected p{
+        color:$white;
+    }
+    
+}
+#play,#next,.home-button{
+    @include buttonStyle;
+}
+#next{
+    background: $green;
+    color: $white;
+}
+#next.hidden {
+    display: none;
+}
+#play{
+    background-color: $white;
+    color:$green;
+    display: inline-flex;
+    transition: 1s easy;
+    margin-top: 55px;
+    i{
+        font-size: 25px;
+        padding-right: 2px;
+    }
+}
+.mark{
+    position: absolute;
+    right: 2px;
+    font-weight: bold;
+}
+.mark.right{
+    color: $green;
+}
+.mark.wrong{
+    color: $red;
+}
+
+#play:hover{
+    background-color: $green;
+    color:$white;
+}
+.home-button{
+    border-color: $blue;
+    color: $white;
+    background-color: $blue;
+    display: inline-flex;
+    margin-top: 55px;
+    margin-right: 15px;
+    i{
+        font-size: 25px;
+    }
+}
+
+.logo-wrapper{
+    text-align: center;
+}
+
+.logo{
+    color: $blue;
+    margin-top: 25px;
+    font-size: 150px;
+}
+.final-score{
+    text-align: center;
+    .game-score{
+        font-size: 45px;
+        color: black;
+        margin: 10px 0;
+    }
+}
+#finish{
+    @include buttonStyle;
+    width: 100%;
+    background-color: $white;
+    color: $blue;
+    border-color: $blue;
+    margin-top: 25px;
 }
